@@ -1,0 +1,10 @@
+<!--Html para pintar la información de una película dentro del listado de películas existentes en un cine-->
+<div class="movie" *ngIf="movie">
+    <img class="movie__image" [src]="movie.cover">
+    <div class="movie__info">
+        <p class="movie__name">{{movie.title}}</p>
+    </div>
+    <div class="movie__buttons">        
+        <button class="movie__button" (click)="moreInfo()">Ver más</button>                
+    </div>
+</div>  

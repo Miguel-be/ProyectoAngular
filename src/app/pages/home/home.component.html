@@ -1,0 +1,23 @@
+<!-- Pinta el listado de películas en un cine.-->
+<div class="bigcontainer"> 
+    <section class="cinemaSection">         
+        <select #selection (change)="updateCinemas(selection.value)" class="select">
+            <option class="select__values" [value]="BYDEFAULTSELECT" selected>{{BYDEFAULTSELECT}}</option>
+            <option *ngFor="let cine of lcinemas" 
+                    [value]="cine.name">{{cine.name}}</option>            
+        </select>     
+     </section>
+    <section *ngIf="lmovies.length!=0" class="movieSection"> 
+        <div class="movie" *ngFor="let movie of lmovies" >
+           <app-movie [movie]="movie"></app-movie>
+        </div> 
+    </section>
+    <section *ngIf="lmovies.length==0" class="informationSection">
+        <p class="informationSection__about">Selecciona tu cine Kinepolis más cercano y disfruta de nuestra colección de películas Vintage</p>
+        <img class="informationSection__image" src="./../../../assets/vintage-cine.jpg">
+    </section>
+</div>
+
+
+
+

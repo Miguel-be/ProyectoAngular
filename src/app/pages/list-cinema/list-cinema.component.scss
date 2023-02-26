@@ -1,0 +1,47 @@
+.bigcontainer{
+    max-width: 1080px;
+    margin:auto;
+}
+
+.cinemaSection{
+    margin-left:1%;
+    margin-right:1%; 
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 24px;  
+}
+
+.search {
+    margin:2px;
+    min-width: 200px;
+    height:15px;  
+    padding:5px;  
+    padding-left: 15px;
+    border:2px solid gray;  
+    color:#064460;  
+}
+
+/*
+.informationSection{
+    margin-left:1%;
+    margin-right:1%; 
+    display: block;    
+    padding: 0px;  
+    text-align: center;
+
+    &__image{
+        margin-bottom:30px;
+        width:200px;
+        height:300px;        
+    }
+
+    &__about{
+        padding:0px;
+        margin-top:0;
+        margin-bottom:40px;
+        text-align: center; 
+        font-size: 1.1em;       
+    }
+}*/
+

@@ -1,0 +1,11 @@
+<!--se pinta el listado de cines que hay en el API. Se incluye un pipe para filtrar los cines en base a un campo de texto-->
+<div class="bigcontainer"> 
+    <section class="cinemaSection">         
+        <input class="search" placeholder="Busca un cine en tu localización" type="text" [(ngModel)]="find">
+     </section>
+    <section *ngIf="lcinemas.length!=0" class="cinemaSection"> 
+        <div *ngFor="let cinema of lcinemas | select:find " >
+           <app-cinema [cinema]="cinema"></app-cinema>
+        </div> 
+    </section>
+</div>

@@ -1,0 +1,28 @@
+<!--Básicamente este html pinta el formulario para la creación / edición de cines.-->
+<div class="bigcontainer"> 
+    <section class="cinemaSection">         
+        <div class="cinema" >             
+            <form *ngIf="cinemaForm" (submit)="SaveForm()" [formGroup]="cinemaForm" class="form">
+                <h1>Información del cine</h1>
+                <input formControlName="name" 
+                       class="form__input" type="text" placeholder="Introduce el nombre">
+                <p class="form__input--error" 
+                   *ngIf="!cinemaForm.get('name')?.valid && cinemaForm.get('name')?.dirty">
+                   Por favor, introduce el nombre del cine</p>
+                <input formControlName="location"
+                       class="form__input" type="text" placeholder="Introduce la dirección del cine">
+                <p class="form__input--error" 
+                       *ngIf="!cinemaForm.get('location')?.valid && cinemaForm.get('location')?.dirty">
+                       Por favor, introduce la dirección del cine</p>                
+                <select formControlName="movies" class="form__input form__input--select" multiple>                                        
+                    <option *ngFor="let m of allmovies" value="{{m._id}}" label="{{m.title}}">{{m.title}}</option>
+                </select> 
+                <p class="form__input--warning">
+                 Puedes seleccionar más de una película pulsando Ctrl</p> 
+                <div class="form__buttons">
+                    <input [disabled]="!cinemaForm.valid" type="submit" class="form__button form__button--remove" value="Guardar">                                                   
+                </div>  
+            </form>   
+        </div> 
+    </section>    
+</div>

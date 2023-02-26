@@ -1,0 +1,11 @@
+<!--se pinta informaicón de un cine-->
+<div class="cinema" *ngIf="cinema">       
+    <div class="cinema__info">
+        <p class="cinema__name">{{cinema.name}}</p>
+        <p class="cinema__location">{{cinema.location}}</p>
+    </div>
+    <div class="cinema__buttons">        
+        <button class="cinema__button cinema__button--remove" (click)="remove()">Eliminar</button>        
+        <button class="cinema__button cinema__button--edit" (click)="edit()">Modificar</button>      
+    </div>
+</div>  

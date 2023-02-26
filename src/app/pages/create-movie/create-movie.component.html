@@ -1,0 +1,39 @@
+<!--Básicamente pinta el formulario para crear y editar películas-->
+<div class="bigcontainer"> 
+    <section class="movieSection">         
+        <div class="movie" >             
+            <form *ngIf="movieForm" (submit)="SaveForm()" [formGroup]="movieForm" class="form">
+                <h1>Información de Película</h1>
+                <input formControlName="title" 
+                       class="form__input" type="text" placeholder="Introduce el título">
+                <p class="form__input--error" 
+                   *ngIf="!movieForm.get('title')?.valid && movieForm.get('title')?.dirty">
+                   Por favor, introduce el título de la película</p>
+                <input formControlName="director"
+                       class="form__input" type="text" placeholder="Introduce el director">
+                <p class="form__input--error" 
+                       *ngIf="!movieForm.get('director')?.valid && movieForm.get('director')?.dirty">
+                       Por favor, introduce el director de la película</p>
+                <select formControlName="genre"
+                        class="form__input form__input--select">
+                    <option *ngIf="!canEdit" value={{BYDEFAULTGENRE}}>{{BYDEFAULTGENRE}}</option>
+                    <option *ngFor="let g of genreOptions" [value]="g">{{g}}</option>
+                </select>
+                <input formControlName="year"
+                       class="form__input" type="number" placeholder="Introduce el año">
+                <p class="form__input--error" 
+                    *ngIf="!movieForm.get('year')?.valid && movieForm.get('year')?.dirty">
+                     Por favor, introduce el año del estreno de la película</p>
+                <input formControlName="cover" accept=".jpg,.png" 
+                type="file" (change)="uploadImage($event)" class="form__input">
+                <p class="form__input--error" 
+                *ngIf="!movieForm.get('cover')?.valid &&                         
+                        movieForm.get('cover')?.dirty">
+                 Por favor, introduce una imagen</p>  
+                <div class="form__buttons">
+                    <input [disabled]="!movieForm.valid" type="submit" class="form__button form__button--remove" value="Guardar">                                                   
+                </div>              
+            </form>   
+        </div> 
+    </section>
+</div>

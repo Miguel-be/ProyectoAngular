@@ -1,0 +1,29 @@
+<!-- Muestra el formulario de registro de usuario. Formulario muy similar al login (casi un copy paste)-->
+<div class="bigcontainer"> 
+    <section class="loginSection"> 
+        <div class="login" >  
+            <form *ngIf="loginForm"
+                  class="form" 
+                  (submit)="register()"
+                  [formGroup]="loginForm">                  
+			    <h1>Registrate</h1>
+                <input formControlName="email" class="form__input" placeholder="Introduce tu email">
+                <p class="form__input--error" 
+                    *ngIf="!loginForm.get('email')?.valid && loginForm.get('email')?.dirty">
+                     Por favor, introduce un email correcto</p>
+                <input formControlName="password" class="form__input" placeholder="Introduce tu password">   
+                <p class="form__input--error" 
+                    *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.dirty">
+                     Por favor, introduce una clave con al menos 4 carácteres</p>
+                <div class="form__buttons">                              
+                    <button [disabled]="!loginForm.valid"  type="submit" class="form__button form__button--access">Acceder</button>
+                </div>  
+                <p
+                class="form__input--error"
+                *ngIf="error"
+>               {{ error }}</p>
+            </form>
+           
+        </div> 
+    </section>
+</div>

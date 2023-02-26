@@ -1,0 +1,26 @@
+<!--se pinta la información de la película. Los botones de borrar y editar sólo se muestran a usuarios identificados-->
+<div class="bigcontainer"> 
+    <section class="movieSection"> 
+        <div class="movie" >  
+            <div class="movie__parallel">
+                <img class="movie__image" [src]="movie?.cover">
+            </div> 
+            <div class="movie__parallel">
+                <div class="movie__info">
+                    <p class="movie__name movie__name__title">{{movie?.title}}</p>
+                    <p class="movie__name">{{movie?.genre}}</p>
+                    <p class="movie__name">{{movie?.year}}</p>
+                    <p class="movie__name">{{movie?.director}}</p>   
+                    <p *ngIf="directorDescription!=''" class="movie__link" (click)="activateAction()">Conocer más al director</p>                   
+                </div>
+            </div>    
+            <div *ngIf="activate" class="movie__info">
+                <p class="movie__description">{{directorDescription}}</p>  
+            </div>                                 
+            <div class="movie__buttons">
+                <button *ngIf="isLogged" class="movie__button movie__button--remove" (click)="deleteMovie()">Eliminar</button>                
+                <button *ngIf="isLogged" class="movie__button movie__button--edit" (click)="editMovie()">Editar</button>  
+            </div>  
+        </div> 
+    </section>
+</div>

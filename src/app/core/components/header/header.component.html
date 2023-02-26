@@ -1,0 +1,30 @@
+<!--Se define la cabecera de la aplicación. Si el usuario está conectado se muestran todos los 
+enlaces menos el Login y si no está conectado sólo se muestra la página Inicio y Login-->
+<div class="bigcontainer">
+    <header class="header">        
+        <div class="linelogo">
+            <img class="linelogo__logo" src="./../../../../assets/logo.png" alt="Kinepolis">
+        </div>
+    </header>  
+    <section class="menu">
+        <div class="menu__wrapper">
+            <a [routerLink]="['inicio']"
+               class="menu__wrapper--item">Inicio</a>
+            <a *ngIf="!isLogged"
+               [routerLink]="['login']"
+               class="menu__wrapper--item">Login</a>
+            <a *ngIf="isLogged"
+               [routerLink]="['listado-cines']"
+               class="menu__wrapper--item">Nuestros cines</a>   
+            <a *ngIf="isLogged"
+               [routerLink]="['nuevo-cine']"
+               class="menu__wrapper--item">Añadir cine</a>
+            <a *ngIf="isLogged"
+               [routerLink]="['nueva-pelicula']"
+               class="menu__wrapper--item">Añadir pelicula</a>
+            <a *ngIf="isLogged"
+               (click)="cerrarSesion()"
+               class="menu__wrapper--item menu__wrapper--item--logout">Cerrar Sesión</a>
+        </div>
+    </section>  
+</div>
